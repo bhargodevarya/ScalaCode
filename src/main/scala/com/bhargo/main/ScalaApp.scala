@@ -69,7 +69,7 @@ object ScalaApp {
 
   println(++(6))
 
-    actorsDemo
+    //actorsDemo
 
     /*val evenOdd = new ProdConsumer
     evenOdd.start*/
@@ -120,10 +120,34 @@ object ScalaApp {
     }
     ))*/
 
+    println("done>>>>")
+
+    val person = new Person("amar","dev",27,"amar_9909@yaho.com")
+    val person2 = new Person("me!!!")
+
+
+    passAlcohol(new Alcohol {
+    println("this is anonymous inner class")
+    })
+
+    passPerson(new Person() {
+    })
+
+    person writeDetails
+  }
+
+  def printOddEven() {
     val system = ActorSystem("evenOdd")
     val act = system.actorOf(Props[Odd], name = "odd")
     Thread.sleep(1000)
-    //act ! resource(1)
+    act ! resource(1)
+  }
+
+  def passAlcohol(alcohol: Alcohol): Unit = {
+    println(alcohol)
+  }
+
+  def passPerson(person: Person) {
 
   }
 
